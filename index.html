@@ -370,18 +370,6 @@
 
         document.addEventListener('selectstart', (e) => e.preventDefault());
 
-        const devtools = /./;
-        devtools.toString = function() {
-            this.opened = true;
-        }
-        const checkDevTools = setInterval(() => {
-            console.log('%c', devtools);
-            if (devtools.opened) {
-                alert('Developer tools detected! Please close them.');
-                devtools.opened = false;
-            }
-        }, 1000);
-
         const questions = [
             "What's your Business name?",
             "What's your email?",
@@ -544,7 +532,7 @@
                 const formData = new FormData();
                 formData.append('subject', 'New Website Request from CoreBuilds™');
                 
-                /// Add all answers to the form in clear format
+                // Add all answers to the form in clear format
                 let emailContent = 'New Website Request\n\n';
                 emailContent += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n';
                 emailContent += `What is your business name?\n${answers['Question 1 answer']}\n\n`;
@@ -591,4 +579,4 @@
         updateInputType();
     </script>
 </body>
-</html>
+</html>                      
