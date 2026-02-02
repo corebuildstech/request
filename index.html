@@ -454,7 +454,6 @@
                     "What's your email?",
                     "What's your Phone Number?",
                     "What's your first and last name?",
-                    "What's your IBAN Number?",
                     "What should the #1 goal of the website be?\n\nFor example:\n• Is it to get more phone calls?\n• Is it so people can see your menu/work gallery without calling?\n• Is it to take bookings automatically so you can work in peace?",
                     "What 3 things make your business better than the shop down the road?\n\nFor example:\n• We've been here for 40 years.\n• We offer a 24-hour emergency response.\n• We have the best beer garden in the county.",
                     "Now in your own imagination where you could create anything, what would you want your website to look like, what kind of style, what functions, describe it best you can.\n\nFor example:\n• I want my website to be a landing page with just my contact information\n• I want my website to match the vibe of my business\n• I want my website to have a booking system"
@@ -510,7 +509,6 @@
                     "What is your Email address?",
                     "What is your Phone Number?",
                     "What's your first and last name?",
-                    "What is your IBAN Number?",
                     "What should the #1 goal of the website be?",
                     "What 3 things make your business better than the shop down the road?",
                     "Describe your website in your own imagination."
@@ -522,7 +520,6 @@
                     "Wie lautet Ihre E-Mail-Adresse?",
                     "Wie lautet ihre Rufnummer?",
                     "Wie lautet ihr vor und nachname?",
-                    "Wie lautet ihre IBAN?",
                     "Was sollte das #1 Ziel der Website sein?\n\nZum Beispiel:\n• Soll sie mehr Anrufe generieren?\n• Soll sie Ihr Menü/Ihre Arbeitsgalerie zeigen, ohne dass Kunden anrufen müssen?\n• Soll sie Buchungen automatisch annehmen, damit Sie in Ruhe arbeiten können?",
                     "Welche 3 Dinge machen Ihr Unternehmen besser als das Geschäft nebenan?\n\nZum Beispiel:\n• Wir sind seit 40 Jahren hier.\n• Wir bieten einen 24-Stunden-Notdienst.\n• Wir haben den besten Biergarten der Gegend.",
                     "Stellen Sie sich vor, Sie könnten alles erschaffen – wie würden Sie Ihre Website gestalten? Welcher Stil, welche Funktionen? Beschreiben Sie es so gut Sie können.\n\nZum Beispiel:\n• Ich möchte eine Landing-Page nur mit meinen Kontaktdaten\n• Ich möchte, dass meine Website zur Atmosphäre meines Unternehmens passt\n• Ich möchte ein Buchungssystem auf meiner Website"
@@ -577,7 +574,6 @@
                     "Wie lautet Ihre E-Mail-Adresse?",
                     "Wie lautet ihre Rufnummer?",
                     "Wie lautet ihr vor und nachname?",
-                    "Wie lautet ihre IBAN?",
                     "Was sollte das #1 Ziel der Website sein?",
                     "Welche 3 Dinge machen Ihr Unternehmen besser als das Geschäft nebenan?",
                     "Beschreiben Sie Ihre Website in Ihrer eigenen Vorstellung."
@@ -632,7 +628,7 @@
             const currentValue = answerInput.value;
             const t = translations[selectedLanguage];
             
-            if (currentQuestion >= 5) {
+            if (currentQuestion >= 4) {
                 if (answerInput.tagName !== 'TEXTAREA') {
                     const textarea = document.createElement('textarea');
                     textarea.className = 'input-box';
@@ -724,7 +720,6 @@
                 emailContent += `${t.emailQuestions[4]}\n${answers['Question 5 answer']}\n\n`;
                 emailContent += `${t.emailQuestions[5]}\n${answers['Question 6 answer']}\n\n`;
                 emailContent += `${t.emailQuestions[6]}\n${answers['Question 7 answer']}\n\n`;
-                emailContent += `${t.emailQuestions[7]}\n${answers['Question 8 answer']}\n\n`;
                 emailContent += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
                 
                 formData.append('message', emailContent);
