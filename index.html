@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreBuilds™ Website Request</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a1a, #1a1a3e, #0d0d25, #1e1e3f);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.6s ease-in;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Floating Neon Orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .orb1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #007bff, transparent);
+            top: 10%;
+            left: 10%;
+            animation: float1 20s ease-in-out infinite;
+        }
+
+        .orb2 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, #00d4ff, transparent);
+            bottom: 15%;
+            right: 15%;
+            animation: float2 18s ease-in-out infinite;
+        }
+
+        .orb3 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #0099ff, transparent);
+            top: 50%;
+            right: 10%;
+            animation: float3 22s ease-in-out infinite;
+        }
+
+        .orb4 {
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, #4d94ff, transparent);
+            bottom: 30%;
+            left: 5%;
+            animation: float4 25s ease-in-out infinite;
+        }
+
+        .orb5 {
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, #1a8cff, transparent);
+            top: 30%;
+            left: 50%;
+            animation: float5 19s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -50px) scale(1.1); }
+            50% { transform: translate(-20px, -80px) scale(0.9); }
+            75% { transform: translate(40px, -30px) scale(1.05); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-40px, 40px) scale(1.15); }
+            66% { transform: translate(20px, -20px) scale(0.95); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            30% { transform: translate(-50px, -30px) scale(1.2); }
+            60% { transform: translate(30px, 50px) scale(0.85); }
+        }
+
+        @keyframes float4 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            40% { transform: translate(40px, 60px) scale(1.1); }
+            80% { transform: translate(-30px, -40px) scale(0.9); }
+        }
+
+        @keyframes float5 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-60px, 40px) scale(1.15); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .top-text {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+        }
+
+        .question {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #e0e0e0;
+            white-space: pre-line;
+        }
+
+        @media (max-width: 768px) {
+            .question {
+                font-size: 0.95rem;
+                margin-bottom: 20px;
+                line-height: 1.5;
+            }
+
+            .top-text {
+                font-size: 1.3rem;
+                margin-bottom: 30px;
+            }
+
+            .input-box {
+                padding: 12px 15px;
+                font-size: 0.95rem;
+                margin-bottom: 25px;
+            }
+
+            .btn {
+                padding: 12px 40px;
+                font-size: 1rem;
+            }
+
+            .education-content h2 {
+                font-size: 1.3rem;
+            }
+
+            .education-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .education-content p,
+            .education-content ul {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .question {
+                font-size: 0.9rem;
+                margin-bottom: 18px;
+            }
+
+            .top-text {
+                font-size: 1.1rem;
+                margin-bottom: 25px;
+            }
+
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                max-width: 100%;
+            }
+        }
+
+        .input-box {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            color: #fff;
+            margin-bottom: 30px;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .input-box:focus {
+            border-color: #0056b3;
+            box-shadow: 0 0 25px rgba(0, 123, 255, 0.6);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .input-box::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        textarea.input-box {
+            min-height: 120px;
+            resize: vertical;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .btn {
+            padding: 15px 50px;
+            font-size: 1.1rem;
+            background: transparent;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            color: #007bff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background: rgba(0, 123, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0, 123, 255, 0.7);
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .education-content {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .education-content h2 {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            color: #007bff;
+            text-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+        }
+
+        .education-content h3 {
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            color: #66b3ff;
+        }
+
+        .education-content p,
+        .education-content ul {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #d0d0d0;
+            margin-bottom: 20px;
+        }
+
+        .education-content ul {
+            list-style-position: inside;
+            padding-left: 20px;
+        }
+
+        .education-content li {
+            margin-bottom: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .success-message {
+            font-size: 1.5rem;
+            color: #28a745;
+            text-shadow: 0 0 20px rgba(40, 167, 69, 0.5);
+        }
+
+        .error-message {
+            color: #ff4444;
+            font-size: 0.95rem;
+            margin-top: -20px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Neon Orbs -->
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="orb orb4"></div>
+    <div class="orb orb5"></div>
+
+    <div class="container">
+        <!-- Questionnaire Section -->
+        <div id="questionnaire-section">
+            <div class="question" id="question-text"></div>
+            <input type="text" class="input-box" id="answer-input" placeholder="Type your answer here...">
+            <div class="error-message hidden" id="error-message">Please provide an answer before continuing.</div>
+            <button class="btn" id="next-btn">Next Question</button>
+        </div>
+
+        <!-- Education Section -->
+        <div id="education-section" class="hidden">
+            <div class="top-text">Learning the difference between Static and Dynamic Websites</div>
+            
+            <div class="education-content" id="education-content">
+                <!-- Content will be dynamically loaded -->
+            </div>
+
+            <button class="btn" id="education-btn">Next</button>
+        </div>
+
+        <!-- Success Section -->
+        <div id="success-section" class="hidden">
+            <div class="success-message">✓ Thank you! Your website request has been submitted successfully.</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+        };
+
+        document.addEventListener('selectstart', (e) => e.preventDefault());
+
+        const devtools = /./;
+        devtools.toString = function() {
+            this.opened = true;
+        }
+        const checkDevTools = setInterval(() => {
+            console.log('%c', devtools);
+            if (devtools.opened) {
+                alert('Developer tools detected! Please close them.');
+                devtools.opened = false;
+            }
+        }, 1000);
+
+        const questions = [
+            "What's your Business name?",
+            "What's your email?",
+            "What should the #1 goal of the website be?\n\nFor example:\n• Is it to get more phone calls?\n• Is it so people can see your menu/work gallery without calling?\n• Is it to take bookings automatically so you can work in peace?",
+            "What 3 things make your business better than the shop down the road?\n\nFor example:\n• We've been here for 40 years.\n• We offer a 24-hour emergency response.\n• We have the best beer garden in the county.",
+            "Now in your own imagination where you could create anything, what would you want your website to look like, what kind of style, what functions, describe it best you can.\n\nFor example:\n• I want my website to be a landing page with just my contact information\n• I want my website to match the vibe of my business\n• I want my website to have a booking system"
+        ];
+
+        let currentQuestion = 0;
+        const answers = {};
+        let educationStep = 0;
+
+        const educationSteps = [
+            {
+                content: `<h2>Choosing Your Digital Foundation</h2>
+                <p>At CoreBuilds™, we provide two tiers of high-performance infrastructure based on your business goals:</p>`,
+                buttonText: "Next"
+            },
+            {
+                content: `<h3>1. The Professional Foundation (Static)</h3>
+                <p>This is a high-speed, secure landing page designed to establish your authority. It is the perfect choice for showcasing your portfolio, certifications, galleries, and contact information.</p>
+                <ul>
+                    <li><strong>Best for:</strong> Building trust and ensuring customers find you on Google.</li>
+                    <li><strong>Pricing:</strong> €89 flat fee. No hidden costs, regardless of the scale of the information provided.</li>
+                </ul>`,
+                buttonText: "Next"
+            },
+            {
+                content: `<h3>2. The Automated Growth Engine (Dynamic)</h3>`,
+                buttonText: "Next"
+            },
+            {
+                content: `<p>A dynamic site moves beyond information and into action. We engineer custom interactivity and "smart" features that work while you sleep.</p>
+                <ul>
+                    <li><strong>Key Features:</strong> Integrated booking systems, customer inquiry portals, interactive menus, and custom tools designed to save you hours of admin work.</li>
+                    <li><strong>Pricing:</strong> Starts at €229.</li>
+                    <li><strong>The CoreBuilds Guarantee:</strong> While pricing scales with complexity, your investment is capped. The price will never exceed €499, no matter how much engineering time we put in.</li>
+                </ul>`,
+                buttonText: "Next"
+            },
+            {
+                content: `<h3>Why the difference matters:</h3>
+                <p><strong>Static</strong> is your digital storefront—it looks great and brings people in.</p>
+                <p><strong>Dynamic</strong> is your digital employee—it takes orders, manages your calendar, and handles the paperwork.</p>`,
+                buttonText: "Understood"
+            }
+        ];
+
+        const questionText = document.getElementById('question-text');
+        const answerInput = document.getElementById('answer-input');
+        const nextBtn = document.getElementById('next-btn');
+        const errorMessage = document.getElementById('error-message');
+        const questionnaireSection = document.getElementById('questionnaire-section');
+        const educationSection = document.getElementById('education-section');
+        const successSection = document.getElementById('success-section');
+        const educationBtn = document.getElementById('education-btn');
+        const educationContent = document.getElementById('education-content');
+
+        // Initialize first question
+        questionText.textContent = questions[currentQuestion];
+
+        // Function to display education content
+        function displayEducationStep() {
+            const step = educationSteps[educationStep];
+            educationContent.innerHTML = step.content;
+            educationBtn.textContent = step.buttonText;
+        }
+
+        // Handle textarea for longer questions
+        function updateInputType() {
+            const container = answerInput.parentElement;
+            const currentValue = answerInput.value;
+            
+            if (currentQuestion >= 2) {
+                if (answerInput.tagName !== 'TEXTAREA') {
+                    const textarea = document.createElement('textarea');
+                    textarea.className = 'input-box';
+                    textarea.id = 'answer-input';
+                    textarea.placeholder = 'Type your answer here...';
+                    textarea.value = currentValue;
+                    answerInput.replaceWith(textarea);
+                    window.answerInput = textarea;
+                }
+            } else {
+                if (answerInput.tagName === 'TEXTAREA') {
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.className = 'input-box';
+                    input.id = 'answer-input';
+                    input.placeholder = 'Type your answer here...';
+                    input.value = currentValue;
+                    answerInput.replaceWith(input);
+                    window.answerInput = input;
+                }
+            }
+        }
+
+        nextBtn.addEventListener('click', () => {
+            const answerInput = document.getElementById('answer-input');
+            const answer = answerInput.value.trim();
+
+            // Validation
+            if (!answer) {
+                errorMessage.textContent = 'Please provide an answer before continuing.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            // Minimum length for business name (question 0)
+            if (currentQuestion === 0 && answer.length < 4) {
+                errorMessage.textContent = 'Business name must be at least 4 characters.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            // Minimum length for email (question 1)
+            if (currentQuestion === 1 && answer.length < 8) {
+                errorMessage.textContent = 'Email must be at least 8 characters.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            errorMessage.classList.add('hidden');
+            answers[`Question ${currentQuestion + 1} answer`] = answer;
+
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                questionText.textContent = questions[currentQuestion];
+                answerInput.value = '';
+                updateInputType();
+                answerInput.focus();
+            } else {
+                // Move to education section
+                questionnaireSection.classList.add('hidden');
+                educationSection.classList.remove('hidden');
+                displayEducationStep();
+            }
+        });
+
+        // Allow Enter key to submit (except for textareas)
+        document.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !questionnaireSection.classList.contains('hidden')) {
+                const answerInput = document.getElementById('answer-input');
+                if (answerInput.tagName !== 'TEXTAREA') {
+                    nextBtn.click();
+                }
+            }
+        });
+
+        // Handle education section navigation
+        educationBtn.addEventListener('click', async () => {
+            // Check if this is the last step (button says "Understood")
+            if (educationBtn.textContent === 'Understood') {
+                // Submit form
+                educationBtn.disabled = true;
+                educationBtn.textContent = 'Sending...';
+
+                // Prepare form data
+                const formData = new FormData();
+                formData.append('subject', 'New Website Request from CoreBuilds™');
+                
+                /// Add all answers to the form in clear format
+                let emailContent = 'New Website Request\n\n';
+                emailContent += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n';
+                emailContent += `What is your business name?\n${answers['Question 1 answer']}\n\n`;
+                emailContent += `What is your Email address?\n${answers['Question 2 answer']}\n\n`;
+                emailContent += `What should the #1 goal of the website be?\n${answers['Question 3 answer']}\n\n`;
+                emailContent += `What 3 things make your business better than the shop down the road?\n${answers['Question 4 answer']}\n\n`;
+                emailContent += `Describe your website in your own imagination.\n${answers['Question 5 answer']}\n\n`;
+                emailContent += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
+                
+                formData.append('message', emailContent);
+
+                try {
+                    // Submit to FormSubmit.co (free email service)
+                    const response = await fetch('https://formsubmit.co/corebuildsofficial@gmail.com', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        // Show success message
+                        educationSection.classList.add('hidden');
+                        successSection.classList.remove('hidden');
+                    } else {
+                        throw new Error('Submission failed');
+                    }
+                } catch (error) {
+                    alert('There was an error submitting your request. Please try again or email us directly at corebuildsofficial@gmail.com');
+                    educationBtn.disabled = false;
+                    educationBtn.textContent = 'Understood';
+                }
+            } else {
+                // Move to next education step
+                educationStep++;
+                if (educationStep < educationSteps.length) {
+                    displayEducationStep();
+                }
+            }
+        });
+
+        // Initialize input type
+        updateInputType();
+    </script>
+</body>
+</html>
